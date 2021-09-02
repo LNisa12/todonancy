@@ -3,9 +3,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
-using todonancy.Function.Entities;
+using todonancy.Functions.Entities;
 
-namespace todonancy.Function.Functions
+namespace todonancy.Functions.Functions
 {
     public static class ScheduledFunction
     {
@@ -16,6 +16,7 @@ namespace todonancy.Function.Functions
             ILogger log)
         {
             log.LogInformation($"Deleting completed function executed at: {DateTime.Now}");
+
             string filter = TableQuery.GenerateFilterConditionForBool("IsCompleted", QueryComparisons.Equal, true);
             TableQuery<TodoEntity> query = new TableQuery<TodoEntity>().Where(filter);
             TableQuerySegment<TodoEntity> completedTodos = await todoTable.ExecuteQuerySegmentedAsync(query, null);

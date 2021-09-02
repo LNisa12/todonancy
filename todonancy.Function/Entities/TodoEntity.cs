@@ -1,9 +1,7 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace todonancy.Function.Entities
+namespace todonancy.Functions.Entities
 {
     public class TodoEntity : TableEntity
     {

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "todonancy.Common", "todonancy.Common\todonancy.Common.csproj", "{34D65F7C-4CA6-4DE8-82AE-9DC3AA879840}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "todonancy.Function", "todonancy.Function\todonancy.Function.csproj", "{2578266A-EE12-4483-9E7D-F6CD75301FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "todonancy.Functions", "todonancy.Function\todonancy.Functions.csproj", "{2578266A-EE12-4483-9E7D-F6CD75301FF1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "todonancy.Test", "todonancy.Test\todonancy.Test.csproj", "{99D0EB97-D580-4EE6-BD3D-7D926BFEDFAF}"
 EndProject

@@ -4,9 +4,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using todonancy.Common.Models;
-using todonancy.Function.Entities;
+using todonancy.Functions.Entities;
 
 namespace todonancy.Test.Helpers
 {
@@ -21,9 +23,10 @@ namespace todonancy.Test.Helpers
                 RowKey = Guid.NewGuid().ToString(),
                 CreatedTime = DateTime.UtcNow,
                 IsCompleted = false,
-                TaskDescription = "Task: Kill the humans."
+                TaskDescription = "Task: kill the humans."
             };
         }
+
         public static DefaultHttpRequest CreateHttpRequest(Guid todoId, Todo todoRequest)
         {
             string request = JsonConvert.SerializeObject(todoRequest);
@@ -33,6 +36,7 @@ namespace todonancy.Test.Helpers
                 Path = $"/{todoId}"
             };
         }
+
         public static DefaultHttpRequest CreateHttpRequest(Guid todoId)
         {
             return new DefaultHttpRequest(new DefaultHttpContext())
@@ -41,10 +45,20 @@ namespace todonancy.Test.Helpers
             };
         }
 
+        public static DefaultHttpRequest CreateHttpRequest(Todo todoRequest)
+        {
+            string request = JsonConvert.SerializeObject(todoRequest);
+            return new DefaultHttpRequest(new DefaultHttpContext())
+            {
+                Body = GenerateStreamFromString(request)
+            };
+        }
+
         public static DefaultHttpRequest CreateHttpRequest()
         {
             return new DefaultHttpRequest(new DefaultHttpContext());
         }
+
         public static Todo GetTodoRequest()
         {
             return new Todo
@@ -64,6 +78,7 @@ namespace todonancy.Test.Helpers
             stream.Position = 0;
             return stream;
         }
+
         public static ILogger CreateLogger(LoggerTypes type = LoggerTypes.Null)
         {
             ILogger logger;
@@ -75,8 +90,8 @@ namespace todonancy.Test.Helpers
             {
                 logger = NullLoggerFactory.Instance.CreateLogger("Null Logger");
             }
+
             return logger;
         }
     }
 }
-

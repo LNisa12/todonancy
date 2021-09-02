@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\todonancy.Function\todonancy.Function.csproj" />
+    <ProjectReference Include="..\todonancy.Function\todonancy.Functions.csproj" />
   </ItemGroup>
 
 </Project>
